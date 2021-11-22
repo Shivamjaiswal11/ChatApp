@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "428114524583",
+    "project_id": "chapapp-ac57d",
+    "storage_bucket": "chapapp-ac57d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428114524583:android:fd407dfe2d2a4cd9585e82",
+        "android_client_info": {
+          "package_name": "com.example.chapapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "428114524583-9c5o2mko56unjpbl2jl8er7q0jvqdn0h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcAblEYKYeOarUqba66XNEyKua9-vVyCk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "428114524583-9c5o2mko56unjpbl2jl8er7q0jvqdn0h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

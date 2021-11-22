@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/images"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp" />
+    <TextView
+        android:id="@+id/txtmessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/profile_image3"
+        android:text="Shivam"
+        android:layout_centerVertical="true"
+        android:background="@drawable/reciver_background"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:padding="@dimen/_7sdp"
+        android:gravity="center"/>
+
+
+</RelativeLayout>
