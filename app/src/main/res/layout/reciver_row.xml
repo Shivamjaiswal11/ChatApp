@@ -21,7 +21,7 @@
         android:text="Shivam"
         android:layout_centerVertical="true"
         android:background="@drawable/reciver_background"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textStyle="bold"
         android:padding="@dimen/_7sdp"
         android:gravity="center"/>
