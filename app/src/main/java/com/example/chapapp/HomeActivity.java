@@ -32,12 +32,14 @@ public class HomeActivity extends AppCompatActivity {
     ArrayList<Users> usersArrayList;
     ImageView logout;
     Dialog dialog;
+    ImageView setting;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         RV = findViewById(R.id.RV);
         logout=findViewById(R.id.logout);
+        setting=findViewById(R.id.setting);
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         usersArrayList= new ArrayList<>();
@@ -95,7 +97,12 @@ public class HomeActivity extends AppCompatActivity {
                 dialog.show();
             }
         });
-
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this,settingActivity.class));
+            }
+        });
 
         if (auth.getCurrentUser() == null) {
             startActivity(new Intent(HomeActivity.this, RegistrationActivity.class));

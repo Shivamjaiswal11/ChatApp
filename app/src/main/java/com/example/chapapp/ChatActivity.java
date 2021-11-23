@@ -82,6 +82,12 @@ MessageAdapter messageAdapter;
         DatabaseReference reference=database.getReference().child("users").child(firebaseAuth.getUid());
         DatabaseReference chatreference=database.getReference().child("chats").child(senderroom).child("messages");
 
+        LinearLayoutManager linearLayoutManager= new LinearLayoutManager(this);
+        linearLayoutManager.setStackFromEnd(true);
+        messageRV.setLayoutManager(linearLayoutManager);
+        messageAdapter=new MessageAdapter(ChatActivity.this,messagesArrayList);
+        messageRV.setAdapter(messageAdapter);
+
         chatreference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -146,11 +152,6 @@ MessageAdapter messageAdapter;
                 });
             }
         });
-   LinearLayoutManager linearLayoutManager= new LinearLayoutManager(this);
-   linearLayoutManager.setStackFromEnd(true);
-   messageRV.setLayoutManager(linearLayoutManager);
-   messageAdapter=new MessageAdapter(ChatActivity.this,messagesArrayList);
-   messageRV.setAdapter(messageAdapter);
 
 
     }

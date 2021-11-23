@@ -19,14 +19,22 @@ android:id="@+id/toolbar"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_weight="1"
-            android:text="FastChatApp"
-            android:textColor="@color/white"
+            android:text="@string/free"
+            android:textColor="@color/black"
             android:textSize="@dimen/_20sdp"
             android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/setting"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_settings" />
 
         <ImageView
             android:id="@+id/logout"
-            android:layout_width="82dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginEnd="@dimen/_10sdp"
