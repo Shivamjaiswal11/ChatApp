@@ -4,17 +4,21 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 
 public class LoginActivity extends AppCompatActivity {
   TextView txt_signup;
@@ -31,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         login_password=findViewById(R.id.login_password);
         login_email=findViewById(R.id.login_email);
         auth=FirebaseAuth.getInstance();
+        getDynamicLinkFormDatabase();
 
         singin_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,4 +85,39 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
+        private void getDynamicLinkFormDatabase() {
+
+            FirebaseDynamicLinks.getInstance()
+                    .getDynamicLink(getIntent())
+                    .addOnSuccessListener(pendingDynamicLinkData -> {
+                        Log.i("SignInActivity","We have a Dynamic Link");
+                        Uri deepLink = null;
+
+                        if(pendingDynamicLinkData!=null){
+                            deepLink = pendingDynamicLinkData.getLink();
+                        }
+
+                        if(deepLink!=null){
+                            Log.i("SignInActivity", "Here the Dynamic link \n" + deepLink.toString());
+
+                            String email = deepLink.getQueryParameter("email");
+                            String password = deepLink.getQueryParameter("password");
+
+                            login_email.setText(email);
+                            login_password.setText(password);
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(LoginActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
+        }
+
 }
